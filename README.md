@@ -24,28 +24,6 @@ Tải thư mục Google Drive tốc độ cao (giữ đúng cấu trúc, không 
 - Ghi chú “Có gì mới” có bản tiếng Anh cho người dùng ngôn ngữ khác
 - [Tải bản 1.5.0](https://github.com/Thainguyen-dr/download-driver-ai-releases/releases/tag/v1.5.0)
 
-### 1.4.2 — Báo bản mới khi mở app (2026-11-22)
-- Thông báo bản mới chỉ hiện MỘT LẦN ngay khi vừa mở app — không còn kiểm tra 30 phút một lần gây phiền
-- Bấm “Để sau” thì trong lúc dùng không bị hỏi lại; nút “⬆ Có bản mới” ở góc trên vẫn luôn sẵn để cập nhật khi muốn
-- [Tải bản 1.4.2](https://github.com/Thainguyen-dr/download-driver-ai-releases/releases/tag/v1.4.2)
-
-### 1.4.1 — Nút cập nhật ở góc trên (2026-11-22)
-- Khi có bản mới, góc trên app hiện nút “⬆ Có bản mới …” cạnh nút Tuỳ chọn — bấm để xem có gì mới và cập nhật
-- Bấm “Để sau” vẫn có thể cập nhật lại bất cứ lúc nào bằng nút này
-- [Tải bản 1.4.1](https://github.com/Thainguyen-dr/download-driver-ai-releases/releases/tag/v1.4.1)
-
-### 1.4.0 — Luôn báo bản mới (2026-11-22)
-- Sửa lỗi: app luôn kiểm tra bản mới (khi mở app và mỗi 30 phút) và hiện thông báo ở góc — kể cả khi tắt “Tự động cập nhật”
-- Bật “Tự động cập nhật” trong Tuỳ chọn nếu muốn app tự cài luôn không cần hỏi
-- [Tải bản 1.4.0](https://github.com/Thainguyen-dr/download-driver-ai-releases/releases/tag/v1.4.0)
-
-### 1.3.9 — Giữ đúng file gốc (2026-11-22)
-- Ảnh gốc trên Google Photos là RAW (ARW, CR3, NEF…): app lưu đúng FILE RAW GỐC với tên và đuôi gốc (ví dụ “8-11 album5924.ARW”), không còn bản “.ARW.jpg” do Google tự chuyển đổi
-- Google chỉ cho tải bản JPG chuyển đổi qua link chia sẻ, nên AI local lấy file RAW gốc trên máy/ổ cứng (xác nhận đúng tấm bằng giờ chụp)
-- Không tìm thấy RAW trên máy: bản xem trước của Google được để riêng trong thư mục “Chưa tìm thấy RAW (bản xem trước Google)”
-- Ảnh gốc là JPG: vẫn tải đúng tên, đúng đuôi như trên Google Photos
-- [Tải bản 1.3.9](https://github.com/Thainguyen-dr/download-driver-ai-releases/releases/tag/v1.3.9)
-
 ## Cài đặt
 - **Mac**: mở file .dmg, kéo app vào Applications. Lần đầu: Cài đặt hệ thống → Quyền riêng tư & Bảo mật → *Vẫn mở*.
 - **Windows**: giải nén, bấm đúp `DownloadDriverAI.exe` (nếu Windows cảnh báo: *Thông tin thêm → Vẫn chạy*).
