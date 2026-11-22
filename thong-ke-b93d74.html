@@ -98,7 +98,8 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 async function get(key) {
   for (let i = 0; i < 6; i++) {
     try {
-      const r = await fetch(API + key, { cache: 'no-store' });
+      const ctl = new AbortController(); const tm = setTimeout(() => ctl.abort(), 12000);
+      const r = await fetch(API + key, { cache: 'no-store', signal: ctl.signal }); clearTimeout(tm);
       if (r.ok) { const j = await r.json(); return Math.max(0, j.value || 0); }
       if (r.status === 404 || r.status === 400) return 0;
       if (r.status === 429) {
