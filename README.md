@@ -4,7 +4,7 @@
 
 Tải thư mục Google Drive tốc độ cao (giữ đúng cấu trúc, không sót file) · lấy ảnh được thả tim trong Google Photos · AI chạy trên máy tự tìm file RAW gốc.
 
-## ⬇️ Bản mới nhất: 1.5.0
+## ⬇️ Bản mới nhất: 1.6.0
 
 👉 **[Tải bản mới nhất](https://github.com/Thainguyen-dr/download-driver-ai-releases/releases/latest)** — chọn file `macOS.zip` (Mac) hoặc `Windows.zip` (Windows).
 
@@ -12,7 +12,13 @@ Tải thư mục Google Drive tốc độ cao (giữ đúng cấu trúc, không 
 
 ## Các phiên bản
 
-### 🆕 1.5.0 — Đa ngôn ngữ & Góp ý (2026-11-22)
+### 🆕 1.6.0 — Tải toàn bộ album (2026-11-22)
+- Thẻ “📷 Google Photos” có thêm chế độ “🖼 Toàn bộ album”: quét và tải TẤT CẢ ảnh và video trong album (đã thử album 983 ảnh: đủ 983/983, khoảng 2 phút)
+- Vẫn chọn/bỏ chọn từng ảnh, tải song song tốc độ cao, AI tìm RAW và ghi file danh sách như chế độ “❤ Ảnh đã tim”
+- Bảng “Có gì mới” gọn hơn: chỉ hiện bản mới nhất so với bản trước
+- [Tải bản 1.6.0](https://github.com/Thainguyen-dr/download-driver-ai-releases/releases/tag/v1.6.0)
+
+### 1.5.0 — Đa ngôn ngữ & Góp ý (2026-11-22)
 - Giao diện 7 ngôn ngữ: Tiếng Việt, English (dùng chung cho Úc), 中文, 日本語, ไทย, ລາວ, Bahasa Indonesia — chọn ở góc trên, tự nhận ngôn ngữ của máy lần đầu
 - Nút “💬 Góp ý”: gửi ý tưởng, báo lỗi hoặc lời khen tới tác giả qua GitHub (nội dung điền sẵn kèm phiên bản app, loại máy, nhật ký nếu muốn)
 - Ghi chú “Có gì mới” có bản tiếng Anh cho người dùng ngôn ngữ khác
@@ -39,13 +45,6 @@ Tải thư mục Google Drive tốc độ cao (giữ đúng cấu trúc, không 
 - Không tìm thấy RAW trên máy: bản xem trước của Google được để riêng trong thư mục “Chưa tìm thấy RAW (bản xem trước Google)”
 - Ảnh gốc là JPG: vẫn tải đúng tên, đúng đuôi như trên Google Photos
 - [Tải bản 1.3.9](https://github.com/Thainguyen-dr/download-driver-ai-releases/releases/tag/v1.3.9)
-
-### 1.3.8 — Thông báo cập nhật (2026-11-22)
-- Có bản mới là app hiện thông báo ở góc màn hình (và thông báo hệ thống) — bấm “Cập nhật ngay” để tự tải, tự cài, tự mở lại
-- Xem “Có gì mới” ngay trong thông báo; bấm “Để sau” nếu chưa muốn cập nhật
-- Bản cập nhật lấy từ trang phát hành chính thức trên GitHub — áp dụng cho mọi máy Mac (chip Apple, Intel) và Windows
-- Trang tải về hiển thị bản mới nhất và 5 bản cũ hơn, kèm ghi chú thay đổi của từng bản
-- [Tải bản 1.3.8](https://github.com/Thainguyen-dr/download-driver-ai-releases/releases/tag/v1.3.8)
 
 ## Cài đặt
 - **Mac**: mở file .dmg, kéo app vào Applications. Lần đầu: Cài đặt hệ thống → Quyền riêng tư & Bảo mật → *Vẫn mở*.
