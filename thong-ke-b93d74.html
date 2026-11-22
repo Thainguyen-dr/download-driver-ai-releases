@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Thống kê Download Driver AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&display=swap">
+<style>
+  /* Bảng số liệu dạng “bảng điều khiển”: số lớn ở trên, biểu đồ theo ngày, rồi chi tiết */
+  :root { --bg:#0b0d12; --panel:#12151d; --line:rgba(255,255,255,.08); --fg:#e8eaf0; --muted:#9aa1b2; --dim:#6b7285;
+          --a1:#7c5cff; --a2:#22d3ee; --font:'Be Vietnam Pro', system-ui, -apple-system, 'Segoe UI', sans-serif; color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body { margin:0; background: radial-gradient(1200px 500px at 10% -10%, rgba(124,92,255,.18), transparent 60%), var(--bg); color:var(--fg);
+         font-family:var(--font); font-size:14px; min-height:100vh; }
+  .wrap { max-width: 1000px; margin: 0 auto; padding-block: 32px 48px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display:grid; gap:18px; }
+  header { display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+  .logo { width:44px; height:44px; border-radius:12px; background:linear-gradient(135deg,var(--a1),var(--a2)); display:grid; place-items:center; flex-shrink:0; }
+  h1 { font-size:22px; margin:0; font-weight:800; text-wrap:balance; }
+  .sub { color:var(--muted); font-size:13px; margin-top:2px; }
+  .refresh { margin-left:auto; border:1px solid var(--line); background:var(--panel); color:var(--fg); border-radius:10px; padding:9px 14px; font:inherit; font-weight:600; cursor:pointer; }
+  .refresh:hover { border-color: rgba(124,92,255,.5); }
+  .refresh:focus-visible { outline:2px solid var(--a2); outline-offset:2px; }
+  .tiles { display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap:12px; }
+  .tile { background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:16px; }
+  .tile .k { color:var(--muted); font-size:12px; text-transform:uppercase; letter-spacing:.06em; }
+  .tile .v { font-size:32px; font-weight:800; margin-top:6px; font-variant-numeric: tabular-nums; }
+  .tile .n { color:var(--dim); font-size:12px; margin-top:2px; }
+  .tile.hero .v { background:linear-gradient(135deg,#c9bfff,var(--a2)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  section { background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:18px; min-width:0; }
+  section h2 { font-size:15px; margin:0 0 4px; }
+  section .d { color:var(--dim); font-size:12px; margin-bottom:12px; }
+  .chart { overflow-x:auto; }
+  .bars { display:flex; align-items:flex-end; gap:4px; height:170px; min-width: 520px; padding-top:18px; border-bottom:1px solid var(--line); }
+  .bar { flex:1; position:relative; background:linear-gradient(180deg,var(--a1),rgba(124,92,255,.35)); border-radius:4px 4px 0 0; min-height:2px; }
+  .bar.today { background:linear-gradient(180deg,var(--a2),rgba(34,211,238,.35)); }
+  .bar span { position:absolute; top:-17px; left:50%; transform:translateX(-50%); font-size:10.5px; color:var(--muted); font-variant-numeric: tabular-nums; }
+  .labels { display:flex; gap:4px; min-width:520px; margin-top:6px; }
+  .labels div { flex:1; text-align:center; font-size:10px; color:var(--dim); }
+  .grid2 { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:18px; }
+  .row { display:grid; grid-template-columns: 110px 1fr 52px; gap:10px; align-items:center; padding:6px 0; }
+  .row .lbl { color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .track { height:8px; background:rgba(255,255,255,.06); border-radius:99px; overflow:hidden; }
+  .fill { height:100%; background:linear-gradient(90deg,var(--a1),var(--a2)); border-radius:99px; }
+  .row .num { text-align:right; font-variant-numeric: tabular-nums; font-weight:600; }
+  .note { color:var(--dim); font-size:12px; line-height:1.6; }
+  .loading { color:var(--muted); }
+  @media (prefers-reduced-motion: no-preference) { .bar, .fill { transition: height .5s, width .5s; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
+    <div><h1>Thống kê Download Driver AI</h1><div class="sub" id="sub">Đang tải số liệu…</div></div>
+    <button class="refresh" id="refresh" type="button">Làm mới</button>
+  </header>
+
+  <div class="tiles">
+    <div class="tile hero"><div class="k">Tổng số máy đã cài</div><div class="v" id="tInstalls">…</div><div class="n" id="tInstallsSplit"></div></div>
+    <div class="tile"><div class="k">Dùng hôm nay</div><div class="v" id="tToday">…</div><div class="n">số máy đã mở app hôm nay</div></div>
+    <div class="tile"><div class="k">Dùng tháng này</div><div class="v" id="tMonth">…</div><div class="n" id="tMonthSplit"></div></div>
+    <div class="tile"><div class="k">Trung bình mỗi ngày</div><div class="v" id="tAvg">…</div><div class="n">trong 30 ngày qua</div></div>
+  </div>
+
+  <section>
+    <h2>Số máy dùng app mỗi ngày</h2>
+    <div class="d">30 ngày gần nhất · mỗi máy chỉ được đếm 1 lần mỗi ngày · cột xanh là hôm nay</div>
+    <div class="chart"><div class="bars" id="days"></div><div class="labels" id="dayLabels"></div></div>
+  </section>
+
+  <div class="grid2">
+    <section><h2>Theo tháng</h2><div class="d">Số máy dùng app trong tháng</div><div id="months" class="loading">Đang tải…</div></section>
+    <section><h2>Theo phiên bản</h2><div class="d">Số máy đã cài hoặc cập nhật lên mỗi bản</div><div id="versions" class="loading">Đang tải…</div></section>
+    <section><h2>Ngôn ngữ</h2><div class="d">Tháng này</div><div id="langs" class="loading">Đang tải…</div></section>
+    <section><h2>Mac / Windows</h2><div class="d">Tháng này</div><div id="plats" class="loading">Đang tải…</div></section>
+  </div>
+
+  <p class="note">Số liệu ẩn danh: app chỉ gửi con số đếm, không có tên, email, file hay ảnh. Người dùng tắt “Gửi thống kê ẩn danh” trong Tuỳ chọn sẽ không được đếm, nên con số thật có thể cao hơn. Thống kê bắt đầu từ bản 1.8.0 (22/11/2026). Trang này không được liên kết công khai.</p>
+</div>
+<script>
+const NS = 'ddai-b93d74';
+const API = 'https://abacus.jasoncameron.dev/get/' + NS + '/';
+const LANGS = { vi: 'Tiếng Việt', en: 'English', zh: '中文', ja: '日本語', th: 'ไทย', lo: 'ລາວ', id: 'Indonesia' };
+const $ = (id) => document.getElementById(id);
+const pad = (n) => String(n).padStart(2, '0');
+const ymd = (d) => d.getFullYear() + pad(d.getMonth() + 1) + pad(d.getDate());
+const ym = (d) => d.getFullYear() + pad(d.getMonth() + 1);
+const fmt = (n) => (n || 0).toLocaleString('vi-VN');
+
+async function get(key) {
+  for (let i = 0; i < 3; i++) {
+    try {
+      const r = await fetch(API + key, { cache: 'no-store' });
+      if (r.status === 404) return 0;
+      if (r.ok) { const j = await r.json(); return Math.max(0, j.value || 0); }
+    } catch (e) {}
+    await new Promise((s) => setTimeout(s, 600 * (i + 1)));
+  }
+  return 0;
+}
+async function getMany(keys) {   // tối đa 6 yêu cầu cùng lúc
+  const out = {}; let i = 0;
+  const worker = async () => { while (i < keys.length) { const k = keys[i++]; out[k] = await get(k); } };
+  await Promise.all(Array.from({ length: 6 }, worker));
+  return out;
+}
+function rows(el, items) {
+  const max = Math.max(1, ...items.map((x) => x[1]));
+  el.classList.remove('loading');
+  el.innerHTML = items.length ? items.map(([l, v]) =>
+    `<div class="row"><div class="lbl" title="${l}">${l}</div><div class="track"><div class="fill" style="width:${(v / max * 100).toFixed(1)}%"></div></div><div class="num">${fmt(v)}</div></div>`).join('')
+    : '<div class="note">Chưa có số liệu.</div>';
+}
+
+async function load() {
+  $('sub').textContent = 'Đang tải số liệu…';
+  const now = new Date();
+  const days = Array.from({ length: 30 }, (_, i) => { const d = new Date(now); d.setDate(d.getDate() - 29 + i); return d; });
+  const months = Array.from({ length: 6 }, (_, i) => { const d = new Date(now.getFullYear(), now.getMonth() - 5 + i, 1); return d; });
+  let versions = [];
+  try { versions = await (await fetch('versions.json', { cache: 'no-store' })).json(); } catch (e) {}
+  const cm = ym(now);
+  const keys = ['installs', 'installs-mac', 'installs-win',
+    ...days.map((d) => 'd-' + ymd(d)), ...months.map((d) => 'm-' + ym(d)),
+    'm-' + cm + '-mac', 'm-' + cm + '-win', ...Object.keys(LANGS).map((l) => 'm-' + cm + '-lang-' + l),
+    ...versions.map((v) => 'v-' + v.replace(/\./g, '_'))];
+  const V = await getMany(keys);
+
+  $('tInstalls').textContent = fmt(V.installs);
+  $('tInstallsSplit').textContent = `Mac ${fmt(V['installs-mac'])} · Windows ${fmt(V['installs-win'])}`;
+  $('tToday').textContent = fmt(V['d-' + ymd(now)]);
+  $('tMonth').textContent = fmt(V['m-' + cm]);
+  $('tMonthSplit').textContent = `Mac ${fmt(V['m-' + cm + '-mac'])} · Windows ${fmt(V['m-' + cm + '-win'])}`;
+  const dv = days.map((d) => V['d-' + ymd(d)] || 0);
+  $('tAvg').textContent = fmt(Math.round(dv.reduce((a, b) => a + b, 0) / 30 * 10) / 10);
+  const max = Math.max(1, ...dv);
+  $('days').innerHTML = dv.map((v, i) => `<div class="bar${i === 29 ? ' today' : ''}" style="height:${Math.max(1, v / max * 100)}%" title="${days[i].toLocaleDateString('vi-VN')}: ${v}"><span>${v || ''}</span></div>`).join('');
+  $('dayLabels').innerHTML = days.map((d, i) => `<div>${i % 5 === 4 || i === 29 ? d.getDate() + '/' + (d.getMonth() + 1) : ''}</div>`).join('');
+  rows($('months'), months.map((d) => [`Tháng ${d.getMonth() + 1}/${d.getFullYear()}`, V['m-' + ym(d)] || 0]).reverse());
+  rows($('versions'), versions.map((v) => ['Bản ' + v, V['v-' + v.replace(/\./g, '_')] || 0]).filter((x, i) => x[1] || i < 3));
+  rows($('langs'), Object.entries(LANGS).map(([k, n]) => [n, V['m-' + cm + '-lang-' + k] || 0]).filter((x) => x[1]).sort((a, b) => b[1] - a[1]));
+  rows($('plats'), [['Mac', V['m-' + cm + '-mac'] || 0], ['Windows', V['m-' + cm + '-win'] || 0]]);
+  $('sub').textContent = 'Cập nhật lúc ' + now.toLocaleString('vi-VN');
+}
+$('refresh').onclick = load;
+load();
+</script>
+</body>
+</html>

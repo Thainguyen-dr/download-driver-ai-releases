@@ -1,6 +1,6 @@
 # Điều khoản sử dụng — Download Driver AI
 
-Phiên bản điều khoản: 1 · Có hiệu lực từ: 22/11/2026
+Phiên bản điều khoản: 2 · Có hiệu lực từ: 22/11/2026
 Tác giả / chủ sở hữu: Do Quoc Thai Nguyen (Đỗ Quốc Thái Nguyên)
 
 Vui lòng đọc kỹ trước khi cài đặt, sử dụng hoặc cập nhật Download Driver AI (“Phần mềm”). Bấm “Tôi đồng ý”, cài đặt, sử dụng hoặc cập nhật Phần mềm nghĩa là bạn đồng ý với toàn bộ các điều khoản dưới đây. Nếu không đồng ý, vui lòng không sử dụng và gỡ Phần mềm khỏi máy.
@@ -35,7 +35,8 @@ Vui lòng đọc kỹ trước khi cài đặt, sử dụng hoặc cập nhật 
 ## 6. Quyền riêng tư
 - Phần mềm chạy trên máy tính của bạn. Tính năng AI (tìm file RAW, trợ lý) chạy hoàn toàn trên máy, không gửi ảnh hay tệp của bạn đi đâu cả.
 - Bạn đăng nhập Google qua trang chính thức của Google. Thông tin đăng nhập được lưu trên máy bạn, tác giả không nhận được và không xem được.
-- Phần mềm chỉ kết nối tới: Google (để tải dữ liệu theo yêu cầu của bạn), GitHub (để kiểm tra và tải bản cập nhật) và trang tải công cụ rclone (khi cần).
+- Phần mềm chỉ kết nối tới: Google (để tải dữ liệu theo yêu cầu của bạn), GitHub (để kiểm tra và tải bản cập nhật), trang tải công cụ rclone (khi cần) và dịch vụ đếm Abacus (abacus.jasoncameron.dev, để thống kê ẩn danh).
+- Thống kê ẩn danh: khi mở app, Phần mềm tăng một số con số đếm để tác giả biết có bao nhiêu người dùng. Các con số gồm: lượt cài mới, số máy dùng trong ngày/tháng, phiên bản, Mac hay Windows, và ngôn ngữ giao diện. Phần mềm không gửi tên, email, mã máy, địa chỉ tài khoản, file hay ảnh. Như mọi kết nối Internet, dịch vụ đếm có thể thấy địa chỉ IP của bạn, nhưng tác giả không nhận được địa chỉ này. Bạn có thể tắt bất cứ lúc nào trong Tuỳ chọn → Hệ thống → “Gửi thống kê ẩn danh”.
 - Góp ý chỉ được gửi khi bạn tự bấm gửi. Góp ý được đăng công khai trên GitHub, vì vậy đừng ghi thông tin nhạy cảm.
 - Khi có thu phí, việc kích hoạt có thể cần gửi mã kích hoạt và một mã nhận diện máy (không phải tên, ảnh hay tệp của bạn) tới nhà cung cấp thanh toán để kiểm tra.
 
@@ -66,7 +67,7 @@ Vui lòng đọc kỹ trước khi cài đặt, sử dụng hoặc cập nhật 
 
 # Terms of Use — Download Driver AI
 
-Terms version: 1 · Effective: 22 November 2026
+Terms version: 2 · Effective: 22 November 2026
 Author / owner: Do Quoc Thai Nguyen
 
 Please read carefully before installing, using or updating Download Driver AI (the “Software”). By clicking “I agree”, or by installing, using or updating the Software, you agree to all of these terms. If you do not agree, do not use the Software and remove it from your computer.
@@ -101,7 +102,8 @@ Please read carefully before installing, using or updating Download Driver AI (t
 ## 6. Privacy
 - The Software runs on your computer. The AI features (RAW finder, assistant) run entirely on your computer and never send your photos or files anywhere.
 - You sign in to Google through Google’s official page. Your sign-in is stored on your computer; the author never receives or sees it.
-- The Software only connects to Google (to download what you ask for), GitHub (to check for and download updates) and the rclone download site (when needed).
+- The Software only connects to Google (to download what you ask for), GitHub (to check for and download updates), the rclone download site (when needed) and the Abacus counter service (abacus.jasoncameron.dev, for anonymous statistics).
+- Anonymous statistics: when the app opens, it increments a few counters so the author knows how many people use it. The counters are: new installs, devices active per day/month, version, Mac or Windows, and interface language. The Software never sends your name, email, a device identifier, account details, files or photos. As with any internet connection, the counter service can see your IP address, but the author never receives it. You can turn this off at any time in Settings → System → “Send anonymous statistics”.
 - Feedback is sent only when you click send. Feedback is posted publicly on GitHub, so do not include sensitive information.
 - When fees apply, activation may send your license key and a device identifier (not your name, photos or files) to the payment provider for verification.
 

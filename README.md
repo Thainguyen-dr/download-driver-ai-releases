@@ -4,7 +4,7 @@
 
 Tải thư mục Google Drive tốc độ cao (giữ đúng cấu trúc, không sót file) · lấy ảnh được thả tim trong Google Photos · AI chạy trên máy tự tìm file RAW gốc.
 
-## ⬇️ Bản mới nhất: 1.7.2
+## ⬇️ Bản mới nhất: 1.8.0
 
 ⚖️ Trước khi tải và cài, vui lòng đọc **[Điều khoản sử dụng / Terms of Use](https://github.com/Thainguyen-dr/download-driver-ai-releases/blob/main/TERMS.md)**. Cài đặt, sử dụng hoặc cập nhật app nghĩa là bạn đồng ý với điều khoản này.
 
@@ -14,17 +14,16 @@ Tải thư mục Google Drive tốc độ cao (giữ đúng cấu trúc, không 
 
 ## Các phiên bản
 
-### 🆕 1.7.2 — Khởi động lại app thật sự (2026-11-22)
+### 🆕 1.8.0 — Thống kê người dùng ẩn danh (2026-11-22)
+- App đếm ẩn danh số người đang dùng (lượt cài, số máy dùng theo ngày/tháng, phiên bản, Mac/Windows, ngôn ngữ) để tác giả biết và cải thiện app — không gửi tên, email, file hay ảnh
+- Tắt được bất cứ lúc nào: ⚙︎ Tuỳ chọn → Hệ thống → “Gửi thống kê ẩn danh”
+- Điều khoản sử dụng cập nhật lên bản 2 (thêm mục thống kê ẩn danh) — bạn sẽ được hỏi đồng ý lại một lần
+- [Tải bản 1.8.0](https://github.com/Thainguyen-dr/download-driver-ai-releases/releases/tag/v1.8.0)
+
+### 1.7.2 — Khởi động lại app thật sự (2026-11-22)
 - Nút ⟳ nay khởi động lại app thật sự: xoá link và kết quả quét đang có, giữ các lựa chọn đã lưu; mục đang tải sẽ tự tải tiếp sau khi mở lại
 - Lưu cài đặt an toàn hơn: không bao giờ bị mất cài đặt khi app tắt đột ngột
 - [Tải bản 1.7.2](https://github.com/Thainguyen-dr/download-driver-ai-releases/releases/tag/v1.7.2)
-
-### 1.7.1 — Nút xoá link & tải lại app (2026-11-22)
-- Nút ✕ cạnh ô link Google Drive và Google Photos: xoá link (và kết quả quét cũ) để dán link khác
-- Nút ⟳ ở góc trên: tải lại app ngay — file đang tải vẫn tiếp tục
-- Tuỳ chọn mới “Ghi nhớ cài đặt khi mở lại app”: bật để giữ lựa chọn lần trước, tắt để mỗi lần mở app đều về mặc định
-- Nút “Khôi phục mặc định” trong ⚙︎ Tuỳ chọn → Hệ thống
-- [Tải bản 1.7.1](https://github.com/Thainguyen-dr/download-driver-ai-releases/releases/tag/v1.7.1)
 
 ## Cài đặt
 - **Mac**: mở file .dmg, kéo app vào Applications. Lần đầu: Cài đặt hệ thống → Quyền riêng tư & Bảo mật → *Vẫn mở*.
