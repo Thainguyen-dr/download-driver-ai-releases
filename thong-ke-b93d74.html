@@ -89,22 +89,26 @@ const ymd = (d) => d.getFullYear() + pad(d.getMonth() + 1) + pad(d.getDate());
 const ym = (d) => d.getFullYear() + pad(d.getMonth() + 1);
 const fmt = (n) => (n || 0).toLocaleString('vi-VN');
 
+// Dịch vụ đếm giới hạn số yêu cầu → hỏi lần lượt từng số, chờ khi bị báo “quá nhiều”, và nhớ số của những ngày/tháng đã qua.
+const CACHE_KEY = 'ddai-stats-cache-v1';
+let CACHE = {};
+try { CACHE = JSON.parse(localStorage.getItem(CACHE_KEY) || '{}'); } catch (e) {}
+const saveCache = () => { try { localStorage.setItem(CACHE_KEY, JSON.stringify(CACHE)); } catch (e) {} };
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 async function get(key) {
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < 6; i++) {
     try {
       const r = await fetch(API + key, { cache: 'no-store' });
-      if (r.status === 404) return 0;
       if (r.ok) { const j = await r.json(); return Math.max(0, j.value || 0); }
+      if (r.status === 404 || r.status === 400) return 0;
+      if (r.status === 429) {
+        const t = await r.text(); const m = t.match(/in ([\d.]+)s/);
+        await sleep((m ? parseFloat(m[1]) : 6) * 1000 + 300); continue;
+      }
     } catch (e) {}
-    await new Promise((s) => setTimeout(s, 600 * (i + 1)));
+    await sleep(1500);
   }
-  return 0;
-}
-async function getMany(keys) {   // tối đa 6 yêu cầu cùng lúc
-  const out = {}; let i = 0;
-  const worker = async () => { while (i < keys.length) { const k = keys[i++]; out[k] = await get(k); } };
-  await Promise.all(Array.from({ length: 6 }, worker));
-  return out;
+  return null;
 }
 function rows(el, items) {
   const max = Math.max(1, ...items.map((x) => x[1]));
@@ -113,36 +117,56 @@ function rows(el, items) {
     `<div class="row"><div class="lbl" title="${l}">${l}</div><div class="track"><div class="fill" style="width:${(v / max * 100).toFixed(1)}%"></div></div><div class="num">${fmt(v)}</div></div>`).join('')
     : '<div class="note">Chưa có số liệu.</div>';
 }
-
+const V = {};
+let RUN = 0;
 async function load() {
-  $('sub').textContent = 'Đang tải số liệu…';
+  const run = ++RUN;
   const now = new Date();
+  const today = ymd(now), cm = ym(now);
   const days = Array.from({ length: 30 }, (_, i) => { const d = new Date(now); d.setDate(d.getDate() - 29 + i); return d; });
-  const months = Array.from({ length: 6 }, (_, i) => { const d = new Date(now.getFullYear(), now.getMonth() - 5 + i, 1); return d; });
+  const months = Array.from({ length: 6 }, (_, i) => new Date(now.getFullYear(), now.getMonth() - 5 + i, 1));
   let versions = [];
-  try { versions = await (await fetch('versions.json', { cache: 'no-store' })).json(); } catch (e) {}
-  const cm = ym(now);
-  const keys = ['installs', 'installs-mac', 'installs-win',
-    ...days.map((d) => 'd-' + ymd(d)), ...months.map((d) => 'm-' + ym(d)),
-    'm-' + cm + '-mac', 'm-' + cm + '-win', ...Object.keys(LANGS).map((l) => 'm-' + cm + '-lang-' + l),
-    ...versions.map((v) => 'v-' + v.replace(/\./g, '_'))];
-  const V = await getMany(keys);
-
-  $('tInstalls').textContent = fmt(V.installs);
-  $('tInstallsSplit').textContent = `Mac ${fmt(V['installs-mac'])} · Windows ${fmt(V['installs-win'])}`;
-  $('tToday').textContent = fmt(V['d-' + ymd(now)]);
-  $('tMonth').textContent = fmt(V['m-' + cm]);
-  $('tMonthSplit').textContent = `Mac ${fmt(V['m-' + cm + '-mac'])} · Windows ${fmt(V['m-' + cm + '-win'])}`;
-  const dv = days.map((d) => V['d-' + ymd(d)] || 0);
-  $('tAvg').textContent = fmt(Math.round(dv.reduce((a, b) => a + b, 0) / 30 * 10) / 10);
-  const max = Math.max(1, ...dv);
-  $('days').innerHTML = dv.map((v, i) => `<div class="bar${i === 29 ? ' today' : ''}" style="height:${Math.max(1, v / max * 100)}%" title="${days[i].toLocaleDateString('vi-VN')}: ${v}"><span>${v || ''}</span></div>`).join('');
-  $('dayLabels').innerHTML = days.map((d, i) => `<div>${i % 5 === 4 || i === 29 ? d.getDate() + '/' + (d.getMonth() + 1) : ''}</div>`).join('');
-  rows($('months'), months.map((d) => [`Tháng ${d.getMonth() + 1}/${d.getFullYear()}`, V['m-' + ym(d)] || 0]).reverse());
-  rows($('versions'), versions.map((v) => ['Bản ' + v, V['v-' + v.replace(/\./g, '_')] || 0]).filter((x, i) => x[1] || i < 3));
-  rows($('langs'), Object.entries(LANGS).map(([k, n]) => [n, V['m-' + cm + '-lang-' + k] || 0]).filter((x) => x[1]).sort((a, b) => b[1] - a[1]));
-  rows($('plats'), [['Mac', V['m-' + cm + '-mac'] || 0], ['Windows', V['m-' + cm + '-win'] || 0]]);
-  $('sub').textContent = 'Cập nhật lúc ' + now.toLocaleString('vi-VN');
+  try { versions = (await (await fetch('versions.json', { cache: 'no-store' })).json()).slice(0, 6); } catch (e) {}
+  const START = '20261122';   // thống kê bắt đầu từ ngày này — trước đó chắc chắn bằng 0
+  const vk = (v) => 'v-' + v.replace(/\./g, '_');
+  // thứ tự ưu tiên: số lớn ở trên trước, rồi biểu đồ
+  const keys = ['installs', 'd-' + today, 'm-' + cm, 'installs-mac', 'installs-win', 'm-' + cm + '-mac', 'm-' + cm + '-win',
+    ...versions.map(vk), ...Object.keys(LANGS).map((l) => 'm-' + cm + '-lang-' + l),
+    ...days.slice(0, 29).reverse().map((d) => 'd-' + ymd(d)), ...months.slice(0, 5).reverse().map((d) => 'm-' + ym(d))];
+  const render = () => {
+    const g = (k) => V[k] ?? CACHE[k];
+    const show = (id, val) => { $(id).textContent = val == null ? '…' : fmt(val); };
+    show('tInstalls', g('installs'));
+    $('tInstallsSplit').textContent = `Mac ${fmt(g('installs-mac'))} · Windows ${fmt(g('installs-win'))}`;
+    show('tToday', g('d-' + today));
+    show('tMonth', g('m-' + cm));
+    $('tMonthSplit').textContent = `Mac ${fmt(g('m-' + cm + '-mac'))} · Windows ${fmt(g('m-' + cm + '-win'))}`;
+    const dv = days.map((d) => g('d-' + ymd(d)) || 0);
+    $('tAvg').textContent = fmt(Math.round(dv.reduce((a, b) => a + b, 0) / 30 * 10) / 10);
+    const max = Math.max(1, ...dv);
+    $('days').innerHTML = dv.map((v, i) => `<div class="bar${i === 29 ? ' today' : ''}" style="height:${Math.max(1, v / max * 100)}%" title="${days[i].toLocaleDateString('vi-VN')}: ${v}"><span>${v || ''}</span></div>`).join('');
+    $('dayLabels').innerHTML = days.map((d, i) => `<div>${i % 5 === 4 || i === 29 ? d.getDate() + '/' + (d.getMonth() + 1) : ''}</div>`).join('');
+    rows($('months'), months.map((d) => [`Tháng ${d.getMonth() + 1}/${d.getFullYear()}`, g('m-' + ym(d)) || 0]).reverse());
+    rows($('versions'), versions.map((v) => ['Bản ' + v, g(vk(v)) || 0]));
+    rows($('langs'), Object.entries(LANGS).map(([k, n]) => [n, g('m-' + cm + '-lang-' + k) || 0]).filter((x) => x[1]).sort((a, b) => b[1] - a[1]));
+    rows($('plats'), [['Mac', g('m-' + cm + '-mac') || 0], ['Windows', g('m-' + cm + '-win') || 0]]);
+  };
+  render();
+  let done = 0;
+  for (const k of keys) {
+    if (run !== RUN) return;
+    const past = (k.startsWith('d-') && k.slice(2) < today) || (/^m-\d{6}$/.test(k) && k.slice(2) < cm);
+    const before = (k.startsWith('d-') && k.slice(2) < START) || (/^m-\d{6}$/.test(k) && k.slice(2) < START.slice(0, 6));
+    if (before) { V[k] = 0; done++; continue; }
+    if (past && CACHE[k] != null) { V[k] = CACHE[k]; done++; continue; }
+    $('sub').textContent = `Đang tải số liệu… ${Math.round(done / keys.length * 100)}%`;
+    const val = await get(k);
+    if (val != null) { V[k] = val; if (past) { CACHE[k] = val; saveCache(); } }
+    done++;
+    render();
+  }
+  render();
+  $('sub').textContent = 'Cập nhật lúc ' + new Date().toLocaleString('vi-VN');
 }
 $('refresh').onclick = load;
 load();
