@@ -4,7 +4,7 @@
 
 Tải thư mục Google Drive tốc độ cao (giữ đúng cấu trúc, không sót file) · lấy ảnh được thả tim trong Google Photos · AI chạy trên máy tự tìm file RAW gốc.
 
-## ⬇️ Bản mới nhất: 1.4.1
+## ⬇️ Bản mới nhất: 1.4.2
 
 👉 **[Tải bản mới nhất](https://github.com/Thainguyen-dr/download-driver-ai-releases/releases/latest)** — chọn file `macOS.zip` (Mac) hoặc `Windows.zip` (Windows).
 
@@ -12,7 +12,12 @@ Tải thư mục Google Drive tốc độ cao (giữ đúng cấu trúc, không 
 
 ## Các phiên bản
 
-### 🆕 1.4.1 — Nút cập nhật ở góc trên (2026-11-22)
+### 🆕 1.4.2 — Báo bản mới khi mở app (2026-11-22)
+- Thông báo bản mới chỉ hiện MỘT LẦN ngay khi vừa mở app — không còn kiểm tra 30 phút một lần gây phiền
+- Bấm “Để sau” thì trong lúc dùng không bị hỏi lại; nút “⬆ Có bản mới” ở góc trên vẫn luôn sẵn để cập nhật khi muốn
+- [Tải bản 1.4.2](https://github.com/Thainguyen-dr/download-driver-ai-releases/releases/tag/v1.4.2)
+
+### 1.4.1 — Nút cập nhật ở góc trên (2026-11-22)
 - Khi có bản mới, góc trên app hiện nút “⬆ Có bản mới …” cạnh nút Tuỳ chọn — bấm để xem có gì mới và cập nhật
 - Bấm “Để sau” vẫn có thể cập nhật lại bất cứ lúc nào bằng nút này
 - [Tải bản 1.4.1](https://github.com/Thainguyen-dr/download-driver-ai-releases/releases/tag/v1.4.1)
