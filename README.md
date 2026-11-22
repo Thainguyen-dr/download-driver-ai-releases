@@ -4,7 +4,9 @@
 
 Tải thư mục Google Drive tốc độ cao (giữ đúng cấu trúc, không sót file) · lấy ảnh được thả tim trong Google Photos · AI chạy trên máy tự tìm file RAW gốc.
 
-## ⬇️ Bản mới nhất: 1.6.1
+## ⬇️ Bản mới nhất: 1.7.0
+
+⚖️ Trước khi tải và cài, vui lòng đọc **[Điều khoản sử dụng / Terms of Use](https://github.com/Thainguyen-dr/download-driver-ai-releases/blob/main/TERMS.md)**. Cài đặt, sử dụng hoặc cập nhật app nghĩa là bạn đồng ý với điều khoản này.
 
 👉 **[Tải bản mới nhất](https://github.com/Thainguyen-dr/download-driver-ai-releases/releases/latest)** — chọn file `macOS.zip` (Mac) hoặc `Windows.zip` (Windows).
 
@@ -12,18 +14,18 @@ Tải thư mục Google Drive tốc độ cao (giữ đúng cấu trúc, không 
 
 ## Các phiên bản
 
-### 🆕 1.6.1 — Sửa giao diện sau cập nhật (2026-11-22)
+### 🆕 1.7.0 — Điều khoản sử dụng (2026-11-22)
+- Thêm Điều khoản sử dụng: lần đầu mở app (và khi điều khoản thay đổi sau cập nhật) bạn đọc và bấm “Tôi đồng ý” để tiếp tục
+- Xem lại điều khoản bất cứ lúc nào trong ⚙︎ Tuỳ chọn → Cập nhật → “Xem điều khoản”
+- App vẫn miễn phí. Nếu sau này có bản thu phí, app sẽ báo trước và bạn được quyền chọn không cập nhật
+- [Tải bản 1.7.0](https://github.com/Thainguyen-dr/download-driver-ai-releases/releases/tag/v1.7.0)
+
+### 1.6.1 — Sửa giao diện sau cập nhật (2026-11-22)
 - Sửa lỗi: sau khi cập nhật, app có thể vẫn hiện giao diện cũ (thiếu chế độ “🖼 Toàn bộ album”) — nay luôn hiện đúng giao diện của phiên bản mới
 - [Tải bản 1.6.1](https://github.com/Thainguyen-dr/download-driver-ai-releases/releases/tag/v1.6.1)
-
-### 1.6.0 — Tải toàn bộ album (2026-11-22)
-- Thẻ “📷 Google Photos” có thêm chế độ “🖼 Toàn bộ album”: quét và tải TẤT CẢ ảnh và video trong album (đã thử album 983 ảnh: đủ 983/983, khoảng 2 phút)
-- Vẫn chọn/bỏ chọn từng ảnh, tải song song tốc độ cao, AI tìm RAW và ghi file danh sách như chế độ “❤ Ảnh đã tim”
-- Bảng “Có gì mới” gọn hơn: chỉ hiện bản mới nhất so với bản trước
-- [Tải bản 1.6.0](https://github.com/Thainguyen-dr/download-driver-ai-releases/releases/tag/v1.6.0)
 
 ## Cài đặt
 - **Mac**: mở file .dmg, kéo app vào Applications. Lần đầu: Cài đặt hệ thống → Quyền riêng tư & Bảo mật → *Vẫn mở*.
 - **Windows**: giải nén, bấm đúp `DownloadDriverAI.exe` (nếu Windows cảnh báo: *Thông tin thêm → Vẫn chạy*).
 
-Phần mềm miễn phí, không được sao chép/đổi tên/phát hành lại khi chưa có sự đồng ý của tác giả — xem LICENSE.
+Hiện tại phần mềm miễn phí. Không được sao chép/đổi tên/phát hành lại khi chưa có sự đồng ý của tác giả — xem [Điều khoản sử dụng](https://github.com/Thainguyen-dr/download-driver-ai-releases/blob/main/TERMS.md) và LICENSE.
