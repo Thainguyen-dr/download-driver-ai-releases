@@ -4,7 +4,7 @@
 
 Tải thư mục Google Drive tốc độ cao (giữ đúng cấu trúc, không sót file) · lấy ảnh được thả tim trong Google Photos · AI chạy trên máy tự tìm file RAW gốc.
 
-## ⬇️ Bản mới nhất: 1.3.8
+## ⬇️ Bản mới nhất: 1.3.9
 
 👉 **[Tải bản mới nhất](https://github.com/Thainguyen-dr/download-driver-ai-releases/releases/latest)** — chọn file `macOS.zip` (Mac) hoặc `Windows.zip` (Windows).
 
@@ -12,7 +12,14 @@ Tải thư mục Google Drive tốc độ cao (giữ đúng cấu trúc, không 
 
 ## Các phiên bản
 
-### 🆕 1.3.8 — Thông báo cập nhật (2026-11-22)
+### 🆕 1.3.9 — Giữ đúng file gốc (2026-11-22)
+- Ảnh gốc trên Google Photos là RAW (ARW, CR3, NEF…): app lưu đúng FILE RAW GỐC với tên và đuôi gốc (ví dụ “8-11 album5924.ARW”), không còn bản “.ARW.jpg” do Google tự chuyển đổi
+- Google chỉ cho tải bản JPG chuyển đổi qua link chia sẻ, nên AI local lấy file RAW gốc trên máy/ổ cứng (xác nhận đúng tấm bằng giờ chụp)
+- Không tìm thấy RAW trên máy: bản xem trước của Google được để riêng trong thư mục “Chưa tìm thấy RAW (bản xem trước Google)”
+- Ảnh gốc là JPG: vẫn tải đúng tên, đúng đuôi như trên Google Photos
+- [Tải bản 1.3.9](https://github.com/Thainguyen-dr/download-driver-ai-releases/releases/tag/v1.3.9)
+
+### 1.3.8 — Thông báo cập nhật (2026-11-22)
 - Có bản mới là app hiện thông báo ở góc màn hình (và thông báo hệ thống) — bấm “Cập nhật ngay” để tự tải, tự cài, tự mở lại
 - Xem “Có gì mới” ngay trong thông báo; bấm “Để sau” nếu chưa muốn cập nhật
 - Bản cập nhật lấy từ trang phát hành chính thức trên GitHub — áp dụng cho mọi máy Mac (chip Apple, Intel) và Windows
