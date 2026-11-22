@@ -4,7 +4,7 @@
 
 Tải thư mục Google Drive tốc độ cao (giữ đúng cấu trúc, không sót file) · lấy ảnh được thả tim trong Google Photos · AI chạy trên máy tự tìm file RAW gốc.
 
-## ⬇️ Bản mới nhất: 1.4.2
+## ⬇️ Bản mới nhất: 1.5.0
 
 👉 **[Tải bản mới nhất](https://github.com/Thainguyen-dr/download-driver-ai-releases/releases/latest)** — chọn file `macOS.zip` (Mac) hoặc `Windows.zip` (Windows).
 
@@ -12,7 +12,13 @@ Tải thư mục Google Drive tốc độ cao (giữ đúng cấu trúc, không 
 
 ## Các phiên bản
 
-### 🆕 1.4.2 — Báo bản mới khi mở app (2026-11-22)
+### 🆕 1.5.0 — Đa ngôn ngữ & Góp ý (2026-11-22)
+- Giao diện 7 ngôn ngữ: Tiếng Việt, English (dùng chung cho Úc), 中文, 日本語, ไทย, ລາວ, Bahasa Indonesia — chọn ở góc trên, tự nhận ngôn ngữ của máy lần đầu
+- Nút “💬 Góp ý”: gửi ý tưởng, báo lỗi hoặc lời khen tới tác giả qua GitHub (nội dung điền sẵn kèm phiên bản app, loại máy, nhật ký nếu muốn)
+- Ghi chú “Có gì mới” có bản tiếng Anh cho người dùng ngôn ngữ khác
+- [Tải bản 1.5.0](https://github.com/Thainguyen-dr/download-driver-ai-releases/releases/tag/v1.5.0)
+
+### 1.4.2 — Báo bản mới khi mở app (2026-11-22)
 - Thông báo bản mới chỉ hiện MỘT LẦN ngay khi vừa mở app — không còn kiểm tra 30 phút một lần gây phiền
 - Bấm “Để sau” thì trong lúc dùng không bị hỏi lại; nút “⬆ Có bản mới” ở góc trên vẫn luôn sẵn để cập nhật khi muốn
 - [Tải bản 1.4.2](https://github.com/Thainguyen-dr/download-driver-ai-releases/releases/tag/v1.4.2)
@@ -40,12 +46,6 @@ Tải thư mục Google Drive tốc độ cao (giữ đúng cấu trúc, không 
 - Bản cập nhật lấy từ trang phát hành chính thức trên GitHub — áp dụng cho mọi máy Mac (chip Apple, Intel) và Windows
 - Trang tải về hiển thị bản mới nhất và 5 bản cũ hơn, kèm ghi chú thay đổi của từng bản
 - [Tải bản 1.3.8](https://github.com/Thainguyen-dr/download-driver-ai-releases/releases/tag/v1.3.8)
-
-### 1.3.7 — Thương hiệu tác giả (2026-11-22)
-- Ghi tên tác giả / người sáng lập: Created by Do Quoc Thai Nguyen
-- Bản quyền © 2026 Do Quoc Thai Nguyen được gắn vào app, file cài Mac/Windows và mã nguồn
-- Sửa chữ ký app trên Mac (không còn báo “bị hỏng” khi tải từ Internet về)
-- [Tải bản 1.3.7](https://github.com/Thainguyen-dr/download-driver-ai-releases/releases/tag/v1.3.7)
 
 ## Cài đặt
 - **Mac**: mở file .dmg, kéo app vào Applications. Lần đầu: Cài đặt hệ thống → Quyền riêng tư & Bảo mật → *Vẫn mở*.
