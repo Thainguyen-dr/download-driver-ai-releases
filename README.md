@@ -4,7 +4,7 @@
 
 Tải thư mục Google Drive tốc độ cao (giữ đúng cấu trúc, không sót file) · lấy ảnh được thả tim trong Google Photos · AI chạy trên máy tự tìm file RAW gốc.
 
-## ⬇️ Bản mới nhất: 1.8.2
+## ⬇️ Bản mới nhất: 1.9.0
 
 ⚖️ Trước khi tải và cài, vui lòng đọc **[Điều khoản sử dụng / Terms of Use](https://github.com/Thainguyen-dr/download-driver-ai-releases/blob/main/TERMS.md)**. Cài đặt, sử dụng hoặc cập nhật app nghĩa là bạn đồng ý với điều khoản này.
 
@@ -14,16 +14,15 @@ Tải thư mục Google Drive tốc độ cao (giữ đúng cấu trúc, không 
 
 ## Các phiên bản
 
-### 🆕 1.8.2 — Luôn hiện giao diện mới (2026-11-23)
+### 🆕 1.9.0 — Lượt tải & người dùng (2026-11-23)
+- Đầu app hiện tổng số lượt tải trên GitHub và số người dùng trong tháng này
+- Tổng lượt tải được giữ lại kể cả khi bản cũ được dọn khỏi GitHub
+- [Tải bản 1.9.0](https://github.com/Thainguyen-dr/download-driver-ai-releases/releases/tag/v1.9.0)
+
+### 1.8.2 — Luôn hiện giao diện mới (2026-11-23)
 - Sửa lỗi: sau khi cập nhật, app có thể vẫn hiện giao diện cũ (ví dụ thiếu phần “📎 Thêm ảnh” trong khung Góp ý) — nay app tự làm mới giao diện sau mỗi lần cập nhật
 - Khung 💬 Góp ý: đính kèm tối đa 6 ảnh chụp lỗi (thêm ảnh, kéo thả hoặc dán ⌘V / Ctrl+V)
 - [Tải bản 1.8.2](https://github.com/Thainguyen-dr/download-driver-ai-releases/releases/tag/v1.8.2)
-
-### 1.8.1 — Góp ý kèm ảnh lỗi (2026-11-23)
-- Khung 💬 Góp ý cho phép đính kèm tối đa 6 ảnh chụp lỗi: bấm “📎 Thêm ảnh”, kéo thả, hoặc dán ảnh (⌘V / Ctrl+V)
-- Khi gửi, ảnh được gộp và chép sẵn — trên trang GitHub chỉ cần nhấn ⌘V / Ctrl+V để dán rồi bấm “Submit new issue”
-- Có hướng dẫn từng bước sau khi gửi, nút “Chép lại ảnh” và “Mở thư mục ảnh”
-- [Tải bản 1.8.1](https://github.com/Thainguyen-dr/download-driver-ai-releases/releases/tag/v1.8.1)
 
 ## Cài đặt
 - **Mac**: mở file .dmg, kéo app vào Applications. Lần đầu: Cài đặt hệ thống → Quyền riêng tư & Bảo mật → *Vẫn mở*.
