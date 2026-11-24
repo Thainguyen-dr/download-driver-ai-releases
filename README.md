@@ -4,7 +4,7 @@
 
 Tải thư mục Google Drive tốc độ cao (giữ đúng cấu trúc, không sót file) · lấy ảnh được thả tim trong Google Photos · AI chạy trên máy tự tìm file RAW gốc.
 
-## ⬇️ Bản mới nhất: 2.0.4
+## ⬇️ Bản mới nhất: 2.0.5
 
 ⚖️ Trước khi tải và cài, vui lòng đọc **[Điều khoản sử dụng / Terms of Use](https://github.com/Thainguyen-dr/download-driver-ai-releases/blob/main/TERMS.md)**. Cài đặt, sử dụng hoặc cập nhật app nghĩa là bạn đồng ý với điều khoản này.
 
@@ -16,18 +16,16 @@ Tải thư mục Google Drive tốc độ cao (giữ đúng cấu trúc, không 
 
 ## Các phiên bản
 
-### 🆕 2.0.4 — Miễn phí toàn bộ + nút ☕ Ủng hộ (2026-11-24)
+### 🆕 2.0.5 — Bảng ☕ Ủng hộ hiện tức thì (2026-11-24)
+- Mã QR ủng hộ được lưu sẵn trên máy: mở app là bảng ủng hộ hiện ngay, đầy đủ QR và số tài khoản, không còn ô trắng chờ tải
+- Mất mạng vẫn hiện được mã QR
+- [Tải bản 2.0.5](https://github.com/Thainguyen-dr/download-driver-ai-releases/releases/tag/v2.0.5)
+
+### 2.0.4 — Miễn phí toàn bộ + nút ☕ Ủng hộ (2026-11-24)
 - Tất cả tính năng đều miễn phí: không quảng cáo, tốc độ “Tối đa ⚡” cho mọi người
 - Nút ☕ Ủng hộ ở góc trên: hiện mã QR (MB Bank) để ủng hộ tác giả — người ủng hộ tự chọn số tiền; bảng ủng hộ cũng hiện khi mở app và đóng được ngay
 - Hướng dẫn sử dụng bổ sung phần ủng hộ
 - [Tải bản 2.0.4](https://github.com/Thainguyen-dr/download-driver-ai-releases/releases/tag/v2.0.4)
-
-### 2.0.3 — Tìm RAW chuẩn trên Mac & Windows + hướng dẫn cho người mới (2026-11-24)
-- Xuất ảnh đã tim: luôn tải ảnh từ Google Photos về thư mục; file RAW gốc tìm được copy vào thư mục con “RAW đối chiếu file tải về”
-- AI tìm RAW đọc giờ chụp ngay trong file RAW — chạy được cả trên Windows (trước chỉ Mac), nhanh hơn, đọc đúng cả Canon CR3
-- Khi cùng một RAW nằm ở nhiều chỗ, app ưu tiên file trong thư mục bạn đã chọn
-- 📘 Hướng dẫn sử dụng cho người mới: nút ❓ ở góc trên (tự mở lần đầu dùng app)
-- [Tải bản 2.0.3](https://github.com/Thainguyen-dr/download-driver-ai-releases/releases/tag/v2.0.3)
 
 ## Cài đặt
 - **Mac**: mở file .dmg, kéo app vào Applications. Lần đầu: Cài đặt hệ thống → Quyền riêng tư & Bảo mật → *Vẫn mở*.
