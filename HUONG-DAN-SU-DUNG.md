@@ -39,6 +39,7 @@ Chỉ cần 3 bước cho mỗi việc. Làm theo thứ tự là được 👇
 
 - Bấm nút **💬** ở góc trên → chọn loại góp ý → viết vài dòng → **📎 Thêm ảnh** chụp màn hình lỗi → **Gửi góp ý**. Ảnh được gửi kèm tự động.
 - Có bản mới, app tự hiện thông báo → bấm **Cập nhật ngay**.
+- App **miễn phí toàn bộ**. Muốn ủng hộ tác giả? Bấm nút **☕ Ủng hộ** ở góc trên để quét mã QR.
 
 ## ❓ Câu hỏi thường gặp
 
